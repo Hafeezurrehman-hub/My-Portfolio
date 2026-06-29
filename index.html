@@ -603,8 +603,8 @@ body.light .loader-logo{color:#1A6FFF}
 
 /* ===== BACK TO TOP ===== */
 #back-top{
-  position:fixed;bottom:240px;right:28px;z-index:9997;
-  width:42px;height:42px;border-radius:10px;
+  position:fixed;bottom:152px;right:28px;z-index:9997;
+  width:48px;height:48px;border-radius:12px;
   background:rgba(0,212,255,0.1);
   border:1px solid rgba(0,212,255,0.2);
   color:var(--cyan);font-size:1rem;
@@ -620,7 +620,7 @@ body.light .loader-logo{color:#1A6FFF}
 #wa-float{
   position:fixed;
   right:28px;
-  bottom:100px;
+  bottom:90px;
   z-index:9996;
   width:52px;height:52px;
   border-radius:50%;
@@ -741,6 +741,110 @@ body.light .loader-logo{color:#1A6FFF}
   color:var(--text2);font-size:0.875rem;
 }
 .service-note a{color:var(--cyan);text-decoration:none;font-weight:600}
+
+/* ===== PACKAGE TABS ===== */
+.pkg-tabs{
+  display:flex;gap:0.75rem;margin-bottom:2rem;
+  flex-wrap:wrap;
+}
+.pkg-tab{
+  padding:0.7rem 2rem;border-radius:50px;
+  font-size:0.9rem;font-weight:600;
+  cursor:pointer;transition:all 0.25s;
+  border:1px solid var(--border);
+  background:var(--card);color:var(--text2);
+  font-family:'Space Grotesk',sans-serif;
+}
+.pkg-tab:hover{border-color:var(--cyan);color:var(--cyan)}
+.pkg-tab.active{
+  background:linear-gradient(135deg,var(--blue),var(--cyan2));
+  color:white;border-color:transparent;
+  box-shadow:0 4px 20px rgba(0,212,255,0.3);
+}
+.pkg-header{
+  border-radius:16px;padding:2rem;
+  margin-bottom:2rem;
+  display:flex;align-items:center;
+  flex-wrap:wrap;gap:1.5rem;
+  position:relative;overflow:hidden;
+}
+.basic-hd{background:linear-gradient(135deg,rgba(100,120,200,0.15),rgba(0,212,255,0.08));border:1px solid rgba(0,212,255,0.15)}
+.standard-hd{background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(26,111,255,0.12));border:1px solid rgba(0,212,255,0.25)}
+.premium-hd{background:linear-gradient(135deg,rgba(255,180,0,0.1),rgba(255,100,0,0.08));border:1px solid rgba(255,180,0,0.2)}
+.pkg-badge{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.1rem;font-weight:700;color:var(--text);
+}
+.pkg-price-wrap{display:flex;align-items:baseline;gap:0.3rem}
+.pkg-from{font-size:0.78rem;color:var(--text2)}
+.pkg-price{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:2.2rem;font-weight:700;color:var(--cyan);
+  text-shadow:0 0 20px rgba(0,212,255,0.4);
+}
+.premium-hd .pkg-price{color:#FFB300;text-shadow:0 0 20px rgba(255,180,0,0.4)}
+.pkg-desc{color:var(--text2);font-size:0.875rem;flex:1;min-width:200px}
+
+/* SERVICE DETAIL */
+.service-detail{
+  margin:0.75rem 0 1rem;
+  padding:0.85rem;
+  background:rgba(0,212,255,0.04);
+  border-left:2px solid rgba(0,212,255,0.3);
+  border-radius:0 8px 8px 0;
+}
+.service-detail p{
+  font-size:0.8rem;
+  color:var(--text2);
+  line-height:1.75;
+  margin:0;
+}
+
+/* PKG SUMMARY BOX */
+.pkg-summary{
+  margin-top:2.5rem;
+  background:rgba(0,212,255,0.04);
+  border:1px solid rgba(0,212,255,0.2);
+  border-radius:16px;
+  padding:1.75rem;
+}
+.pkg-summary h4{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1rem;font-weight:700;
+  color:var(--cyan);margin-bottom:1.25rem;
+}
+.pkg-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;margin-bottom:1.5rem;
+}
+.ps-item{
+  display:flex;gap:0.75rem;align-items:flex-start;
+}
+.ps-item i{
+  color:var(--cyan);font-size:1.1rem;
+  margin-top:2px;flex-shrink:0;
+}
+.ps-item strong{
+  display:block;font-size:0.85rem;
+  color:var(--text);margin-bottom:0.2rem;
+}
+.ps-item p{
+  font-size:0.78rem;color:var(--text2);
+  line-height:1.6;margin:0;
+}
+.pkg-cta{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:linear-gradient(135deg,var(--blue),var(--cyan2));
+  color:white;padding:0.8rem 2rem;
+  border-radius:8px;text-decoration:none;
+  font-weight:600;font-size:0.9rem;
+  transition:all 0.2s;
+}
+.pkg-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,212,255,0.3);
+}
 </style>
 </head>
 <body>
@@ -888,194 +992,373 @@ body.light .loader-logo{color:#1A6FFF}
     <p class="eyebrow">What I Offer</p>
     <h2 class="sec-title">Services & Pricing</h2>
     <div class="line"></div>
-    <div class="services-grid">
 
-      <div class="service-card popular">
-        <div class="popular-badge">⭐ Most Popular</div>
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-shopping-bag"></i></div>
-          <div><h3>Shopify Store</h3><p>E-Commerce Development</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 8,000</span>
-          </div>
-          <ul class="service-features">
-            <li>Complete Store Setup</li>
-            <li>Professional Theme Design</li>
-            <li>Mobile Responsive</li>
-            <li>Product Upload (up to 20)</li>
-            <li>Payment Integration</li>
-            <li>1 Week Delivery</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-          <div><h3>Digital Marketing</h3><p>Social Media & Ads</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 5,000</span>
-            <span class="price-unit">/ month</span>
-          </div>
-          <ul class="service-features">
-            <li>Social Media Management</li>
-            <li>10 Posts per Month</li>
-            <li>Facebook & Instagram Ads</li>
-            <li>Monthly Report</li>
-            <li>Brand Strategy</li>
-            <li>Lead Generation</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-          <div><h3>Website Design</h3><p>Business & Portfolio Sites</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 6,000</span>
-          </div>
-          <ul class="service-features">
-            <li>Custom Design</li>
-            <li>Mobile Responsive</li>
-            <li>Up to 5 Pages</li>
-            <li>Contact Form</li>
-            <li>Free Hosting Setup</li>
-            <li>1 Week Delivery</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
-          <div><h3>Graphic Design</h3><p>Logo & Branding</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 1,500</span>
-          </div>
-          <ul class="service-features">
-            <li>Logo Design (3 Concepts)</li>
-            <li>Business Card Design</li>
-            <li>Social Media Posts</li>
-            <li>Banner & Flyer Design</li>
-            <li>Source File Included</li>
-            <li>Unlimited Revisions</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-robot"></i></div>
-          <div><h3>AI & Automation</h3><p>Chatbot & Workflows</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 7,000</span>
-          </div>
-          <ul class="service-features">
-            <li>AI Chatbot Development</li>
-            <li>WhatsApp Automation</li>
-            <li>Google Sheets Automation</li>
-            <li>Workflow Setup</li>
-            <li>AI Content Generation</li>
-            <li>Training & Support</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-video"></i></div>
-          <div><h3>Video Editing</h3><p>Reels & Short Content</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 1,000</span>
-            <span class="price-unit">/ video</span>
-          </div>
-          <ul class="service-features">
-            <li>Reels & TikTok Editing</li>
-            <li>Captions & Subtitles</li>
-            <li>Background Music</li>
-            <li>Color Grading</li>
-            <li>CapCut & Premiere Pro</li>
-            <li>Fast 24hr Delivery</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fas fa-globe"></i></div>
-          <div><h3>Portfolio Website</h3><p>Personal Branding Site</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 2,000</span>
-          </div>
-          <ul class="service-features">
-            <li>Custom Portfolio Design</li>
-            <li>About & Skills Section</li>
-            <li>Projects Showcase</li>
-            <li>Contact Form</li>
-            <li>Mobile Responsive</li>
-            <li>Free Hosting Setup</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon"><i class="fab fa-linkedin"></i></div>
-          <div><h3>LinkedIn Optimization</h3><p>Profile & Personal Branding</p></div>
-        </div>
-        <div class="service-body">
-          <div class="service-price">
-            <span class="price-from">Starting from</span>
-            <span class="price-num">Rs 2,000</span>
-          </div>
-          <ul class="service-features">
-            <li>Professional Headline</li>
-            <li>About Section Writing</li>
-            <li>Skills & Endorsements</li>
-            <li>Banner Design</li>
-            <li>Profile SEO Optimization</li>
-            <li>Featured Section Setup</li>
-          </ul>
-          <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
-        </div>
-      </div>
-
+    <div class="pkg-tabs">
+      <button class="pkg-tab active" onclick="showPkg('basic', this)">🥉 Basic</button>
+      <button class="pkg-tab" onclick="showPkg('standard', this)">🥈 Standard</button>
+      <button class="pkg-tab" onclick="showPkg('premium', this)">🥇 Premium</button>
     </div>
+
+    <!-- BASIC PACKAGE -->
+    <div class="pkg-panel" id="pkg-basic">
+      <div class="pkg-header basic-hd">
+        <div class="pkg-badge">🥉 Basic Package</div>
+        <div class="pkg-price-wrap"><span class="pkg-from">Starting from</span><span class="pkg-price">$100 <small style="font-size:1rem;opacity:0.7">/ PKR 28,000</small></span></div>
+        <p class="pkg-desc">Perfect for individuals & students getting started online</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-globe"></i></div><div><h3>Portfolio Website</h3><p>Personal Branding Site</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$100</span><span class="price-unit">/ PKR 28,000</span></div>
+            <ul class="service-features">
+              <li>Single Page Design</li>
+              <li>About & Skills Section</li>
+              <li>3 Projects Showcase</li>
+              <li>Contact Form</li>
+              <li>Mobile Responsive</li>
+              <li>Free Hosting Setup</li>
+            </ul>
+            <div class="service-detail">
+              <p>A clean single-page portfolio to showcase your skills and projects. Ideal for students, freshers, and new freelancers who want to establish their online presence quickly. Hosted free on GitHub Pages with a professional look that makes a strong first impression on clients and employers.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fab fa-linkedin"></i></div><div><h3>LinkedIn Optimization</h3><p>Profile & Branding</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$100</span><span class="price-unit">/ PKR 28,000</span></div>
+            <ul class="service-features">
+              <li>Professional Headline</li>
+              <li>About Section Writing</li>
+              <li>Skills & Endorsements</li>
+              <li>Banner Design</li>
+              <li>Profile SEO Optimization</li>
+              <li>Featured Section Setup</li>
+            </ul>
+            <div class="service-detail">
+              <p>A fully optimized LinkedIn profile that attracts recruiters, clients, and opportunities. Includes a keyword-rich headline, compelling About section, custom banner design, and SEO setup so your profile appears in more searches. Perfect for job seekers, freelancers, and professionals.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-paint-brush"></i></div><div><h3>Graphic Design</h3><p>Logo & Branding</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$120</span><span class="price-unit">/ PKR 33,600</span></div>
+            <ul class="service-features">
+              <li>Logo Design (3 Concepts)</li>
+              <li>Business Card Design</li>
+              <li>2 Social Media Posts</li>
+              <li>Source File Included</li>
+              <li>3 Revisions</li>
+              <li>3 Day Delivery</li>
+            </ul>
+            <div class="service-detail">
+              <p>Professional logo and branding package using Adobe Illustrator and Photoshop. You get 3 unique logo concepts to choose from, a business card design, and 2 ready-to-post social media graphics. All source files are included so you own the design completely.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-video"></i></div><div><h3>Video Editing</h3><p>Reels & Short Content</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$100</span><span class="price-unit">/ PKR 28,000</span></div>
+            <ul class="service-features">
+              <li>3 Short Videos / Reels</li>
+              <li>Captions & Subtitles</li>
+              <li>Background Music</li>
+              <li>Color Grading</li>
+              <li>Premiere Pro & CapCut</li>
+              <li>48 Hour Delivery</li>
+            </ul>
+            <div class="service-detail">
+              <p>High-quality short-form video editing for Instagram Reels, TikTok, and YouTube Shorts. Edited using Adobe Premiere Pro and CapCut with professional color grading, captions, and music. Fast 48-hour turnaround for content creators and businesses needing consistent social media content.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pkg-summary">
+        <h4>🥉 What's Included in Basic Package</h4>
+        <div class="pkg-summary-grid">
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Portfolio Website ($100)</strong><p>Single page site with About, Skills, 3 Projects, Contact Form & free GitHub hosting</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>LinkedIn Optimization ($100)</strong><p>Headline, About section, Banner design, Skills setup & Profile SEO</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Graphic Design ($120)</strong><p>3 logo concepts, Business card, 2 social media posts & source files</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Video Editing ($100)</strong><p>3 reels/short videos with captions, music, color grading & 48hr delivery</p></div></div>
+        </div>
+        <a href="https://wa.me/923110528707" target="_blank" class="pkg-cta">💬 Order Basic Package →</a>
+      </div>
+    </div>
+    </div>
+
+    <!-- STANDARD PACKAGE -->
+    <div class="pkg-panel" id="pkg-standard" style="display:none">
+      <div class="pkg-header standard-hd">
+        <div class="pkg-badge">🥈 Standard Package</div>
+        <div class="pkg-price-wrap"><span class="pkg-from">Starting from</span><span class="pkg-price">$250 <small style="font-size:1rem;opacity:0.7">/ PKR 70,000</small></span></div>
+        <p class="pkg-desc">Ideal for growing businesses & serious freelancers ready to scale</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card popular">
+          <div class="popular-badge">⭐ Most Popular</div>
+          <div class="service-top"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><div><h3>Shopify Store</h3><p>E-Commerce Development</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$250</span><span class="price-unit">/ PKR 70,000</span></div>
+            <ul class="service-features">
+              <li>Complete Store Setup</li>
+              <li>Premium Theme Design</li>
+              <li>Mobile Responsive</li>
+              <li>Up to 30 Products</li>
+              <li>Payment Integration</li>
+              <li>Basic SEO Setup</li>
+              <li>7 Day Delivery</li>
+            </ul>
+            <div class="service-detail">
+              <p>A fully functional Shopify store designed to convert visitors into buyers. Includes premium theme customization, product upload, payment gateway setup, and mobile optimization. Built with conversion-focused design principles to maximize your sales from day one.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><div><h3>Business Website</h3><p>Professional Web Design</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$280</span><span class="price-unit">/ PKR 78,400</span></div>
+            <ul class="service-features">
+              <li>Custom 5-Page Website</li>
+              <li>Mobile Responsive</li>
+              <li>Contact & Lead Form</li>
+              <li>Basic SEO Setup</li>
+              <li>Google Maps Integration</li>
+              <li>Social Media Links</li>
+              <li>7 Day Delivery</li>
+            </ul>
+            <div class="service-detail">
+              <p>A complete professional business website with up to 5 custom-designed pages including Home, About, Services, Portfolio, and Contact. Includes lead capture forms, Google Maps, basic SEO, and social media integration. Ideal for local businesses, startups, and service providers.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-chart-line"></i></div><div><h3>Digital Marketing</h3><p>Social Media & Ads</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$250</span><span class="price-unit">/ mo · PKR 70,000</span></div>
+            <ul class="service-features">
+              <li>3 Platform Management</li>
+              <li>20 Posts per Month</li>
+              <li>Facebook & Instagram Ads</li>
+              <li>Ad Budget Management</li>
+              <li>Monthly Analytics Report</li>
+              <li>Lead Generation</li>
+            </ul>
+            <div class="service-detail">
+              <p>Full-service digital marketing management across Facebook, Instagram, and LinkedIn. Includes content creation, ad campaign management, audience targeting, and monthly analytics reporting. Results-driven strategy focused on growing your audience, generating leads, and increasing sales.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-robot"></i></div><div><h3>AI Chatbot</h3><p>Business Automation</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$300</span><span class="price-unit">/ PKR 84,000</span></div>
+            <ul class="service-features">
+              <li>Custom AI Chatbot</li>
+              <li>WhatsApp Integration</li>
+              <li>FAQ Training (50 Q&A)</li>
+              <li>Lead Capture Setup</li>
+              <li>Google Sheets Automation</li>
+              <li>30 Day Support</li>
+            </ul>
+            <div class="service-detail">
+              <p>A smart AI-powered chatbot trained on your business data to automatically answer customer queries 24/7. Integrated directly into your website and WhatsApp. Captures leads, books appointments, and automates repetitive support tasks — saving you time and money every day.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-globe"></i></div><div><h3>Portfolio Website</h3><p>Multi-Page Professional</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$250</span><span class="price-unit">/ PKR 70,000</span></div>
+            <ul class="service-features">
+              <li>Multi-Page Design (up to 5)</li>
+              <li>Animated Sections</li>
+              <li>Projects Showcase Gallery</li>
+              <li>Skills & Certifications</li>
+              <li>Contact Form + WhatsApp</li>
+              <li>AI Chatbot Integration</li>
+              <li>5 Day Delivery</li>
+            </ul>
+            <div class="service-detail">
+              <p>A multi-page animated portfolio website with a dark tech theme, skill progress bars, project showcase gallery, certifications section, and an integrated AI chatbot. Perfect for developers, designers, and digital marketers who want a standout online presence that impresses clients instantly.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pkg-summary">
+        <h4>🥈 What's Included in Standard Package</h4>
+        <div class="pkg-summary-grid">
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Shopify Store ($250)</strong><p>Complete store, premium theme, 30 products, payment integration & SEO</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Business Website ($280)</strong><p>5-page custom site, lead forms, Google Maps, SEO & social links</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Digital Marketing ($250/mo)</strong><p>3 platforms, 20 posts/month, FB & IG Ads, monthly report & lead gen</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>AI Chatbot ($300)</strong><p>Custom AI bot, WhatsApp integration, 50 Q&A training & 30 day support</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle"></i><div><strong>Portfolio Website ($250)</strong><p>Multi-page, animated, gallery, AI chatbot included & 5 day delivery</p></div></div>
+        </div>
+        <a href="https://wa.me/923110528707" target="_blank" class="pkg-cta">💬 Order Standard Package →</a>
+      </div>
+    </div>
+    </div>
+
+    <!-- PREMIUM PACKAGE -->
+    <div class="pkg-panel" id="pkg-premium" style="display:none">
+      <div class="pkg-header premium-hd">
+        <div class="pkg-badge">🥇 Premium Package</div>
+        <div class="pkg-price-wrap"><span class="pkg-from">Starting from</span><span class="pkg-price">$800 <small style="font-size:1rem;opacity:0.7">/ PKR 224,000</small></span></div>
+        <p class="pkg-desc">Complete digital transformation for established businesses & brands</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-store"></i></div><div><h3>Full E-Commerce Solution</h3><p>Shopify + Marketing</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$800</span><span class="price-unit">/ PKR 224,000</span></div>
+            <ul class="service-features">
+              <li>Complete Shopify Store</li>
+              <li>Custom Theme Design</li>
+              <li>Unlimited Products</li>
+              <li>Full SEO Optimization</li>
+              <li>Email Marketing Setup</li>
+              <li>Facebook Ads Campaign</li>
+              <li>60 Day Support</li>
+            </ul>
+            <div class="service-detail">
+              <p>An enterprise-grade Shopify store with a completely custom-designed theme, unlimited products, full technical SEO, email marketing automation, and a live Facebook Ads campaign. Everything you need to launch and grow a profitable online store from day one, with 60 days of dedicated post-launch support.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card popular">
+          <div class="popular-badge">🔥 Best Value</div>
+          <div class="service-top"><div class="service-icon"><i class="fas fa-rocket"></i></div><div><h3>Complete Digital Package</h3><p>All-in-One Solution</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$900</span><span class="price-unit">/ PKR 252,000</span></div>
+            <ul class="service-features">
+              <li>Business Website (7 Pages)</li>
+              <li>Logo & Brand Identity</li>
+              <li>Social Media Setup (5 Platforms)</li>
+              <li>3 Month Marketing Plan</li>
+              <li>AI Chatbot Integration</li>
+              <li>Google Business Profile</li>
+              <li>60 Day Support</li>
+            </ul>
+            <div class="service-detail">
+              <p>The ultimate all-in-one digital package for businesses serious about dominating online. Includes a 7-page custom website, complete brand identity, social media setup across 5 platforms, a 3-month marketing strategy, AI chatbot, Google Business Profile optimization, and 60 days of dedicated support. One investment, complete digital transformation.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-brain"></i></div><div><h3>AI Automation Suite</h3><p>Full Business Automation</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$850</span><span class="price-unit">/ PKR 238,000</span></div>
+            <ul class="service-features">
+              <li>Agentic AI System</li>
+              <li>AI Customer Support Bot</li>
+              <li>AI Lead Generation</li>
+              <li>CRM Integration</li>
+              <li>WhatsApp + Email Automation</li>
+              <li>Custom Dashboard</li>
+              <li>90 Day Support</li>
+            </ul>
+            <div class="service-detail">
+              <p>A complete AI-powered automation ecosystem for your business. Includes an agentic AI system that handles customer support, lead generation, CRM updates, and WhatsApp/email follow-ups — all automatically. Comes with a custom analytics dashboard so you can track performance in real time. 90 days of ongoing support included.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-bullhorn"></i></div><div><h3>Premium Marketing</h3><p>Full Digital Marketing</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$800</span><span class="price-unit">/ mo · PKR 224,000</span></div>
+            <ul class="service-features">
+              <li>All 5 Platforms Managed</li>
+              <li>40 Posts per Month</li>
+              <li>Google + Meta + TikTok Ads</li>
+              <li>Full Ad Budget Management</li>
+              <li>Weekly Reports</li>
+              <li>Dedicated Account Manager</li>
+            </ul>
+            <div class="service-detail">
+              <p>Full-scale digital marketing management across all 5 major platforms with 40 custom posts per month, multi-platform ad campaigns on Google, Meta, and TikTok, weekly performance reports, and a dedicated account manager. Designed for brands ready to achieve aggressive growth and market dominance.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-top"><div class="service-icon"><i class="fas fa-globe"></i></div><div><h3>Portfolio Website</h3><p>Premium Brand Identity</p></div></div>
+          <div class="service-body">
+            <div class="service-price"><span class="price-from">Starting from</span><span class="price-num">$800</span><span class="price-unit">/ PKR 224,000</span></div>
+            <ul class="service-features">
+              <li>Full Custom Design</li>
+              <li>Animated Background & Effects</li>
+              <li>Blog / Case Study Section</li>
+              <li>AI Chatbot Integrated</li>
+              <li>Dark / Light Mode Toggle</li>
+              <li>SEO Optimized</li>
+              <li>90 Day Support</li>
+            </ul>
+            <div class="service-detail">
+              <p>A world-class premium portfolio website with fully custom animated design, interactive AI chatbot, blog/case study section, dark & light mode, complete SEO optimization, and performance tuning. Built to position you as an industry expert and attract high-value international clients. Includes 90 days of dedicated support and updates.</p>
+            </div>
+            <a href="https://wa.me/923110528707" target="_blank" class="service-btn">Get Started →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pkg-summary" style="border-color:rgba(255,180,0,0.3);background:rgba(255,180,0,0.04)">
+        <h4 style="color:#FFB300">🥇 What's Included in Premium Package</h4>
+        <div class="pkg-summary-grid">
+          <div class="ps-item"><i class="fas fa-check-circle" style="color:#FFB300"></i><div><strong>Full E-Commerce ($800)</strong><p>Custom Shopify store, unlimited products, full SEO, email marketing & FB Ads</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle" style="color:#FFB300"></i><div><strong>Complete Digital Package ($900)</strong><p>7-page website, brand identity, 5 social platforms, 3-month marketing plan & AI chatbot</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle" style="color:#FFB300"></i><div><strong>AI Automation Suite ($850)</strong><p>Agentic AI, customer support bot, CRM integration, WhatsApp automation & dashboard</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle" style="color:#FFB300"></i><div><strong>Premium Marketing ($800/mo)</strong><p>5 platforms, 40 posts/month, Google + Meta + TikTok Ads & dedicated manager</p></div></div>
+          <div class="ps-item"><i class="fas fa-check-circle" style="color:#FFB300"></i><div><strong>Portfolio Website ($800)</strong><p>Full custom design, animations, blog, AI chatbot, dark/light mode & 90 day support</p></div></div>
+        </div>
+        <a href="https://wa.me/923110528707" target="_blank" class="pkg-cta" style="background:linear-gradient(135deg,#B8860B,#FFB300)">💬 Order Premium Package →</a>
+      </div>
+    </div>
+    </div>
+
     <p class="service-note">
-      💬 Need a custom package? <a href="https://wa.me/923110528707" target="_blank">WhatsApp us</a> — we'll find the best deal within your budget!
+      💬 Need a custom package? <a href="https://wa.me/923110528707" target="_blank">WhatsApp us</a> — we will build the perfect plan within your budget!
     </p>
   </div>
 </section>
+
+
+
+
+
+
 
 <section id="projects">
   <div class="section-inner">
@@ -1322,9 +1605,12 @@ function toggleMenu(){
   transition:all 0.2s;flex-shrink:0;
 }
 #chat-send:hover{box-shadow:0 0 15px rgba(0,212,255,0.4);transform:scale(1.05)}
-@media(max-width:480px){
-  #chat-window{width:calc(100vw - 2rem);right:1rem;bottom:90px}
-  #chat-btn{bottom:20px;right:20px}
+@media(max-width:600px){
+  #chat-window{width:calc(100vw - 2rem);right:1rem;bottom:88px}
+  #chat-btn{bottom:20px;right:16px;width:50px;height:50px}
+  #wa-float{bottom:80px;right:16px;width:50px;height:50px}
+  #back-top{bottom:140px;right:16px;width:46px;height:46px}
+  #wa-tooltip{display:none}
 }
 </style>
 
@@ -1585,72 +1871,156 @@ function toggleMenu(){
 
 <script>
 // ===== SMART OFFLINE CHATBOT =====
+
 const KB = {
   greet: {
-    q: ['hello','hi','salam','assalam','hey','helo','hii','kya hal','how are','good morning','good evening'],
-    a: "👋 Hello! I'm Hafeez's AI Assistant. Feel free to ask me anything — services, projects, contact info, or anything else!"
+    q: ['hello','hi','hey','hii','good morning','good evening','good afternoon','start','begin','help','sup','howdy'],
+    a: "Hello! 👋 Welcome to Hafeez Ur Rehman's portfolio.\n\nI can help you with:\n✅ Services & Pricing\n✅ How to hire Hafeez\n✅ Portfolio & Projects\n✅ LinkedIn & Career Tips\n✅ Contact Information\n\nWhat would you like to know?"
   },
+
+  hire: {
+    q: ['hire','how to hire','want to hire','need your service','start project','work with','get started','how do i order','place order','need help with','looking for'],
+    a: "🤝 Great! Here's how to get started:\n\n1️⃣ WhatsApp: wa.me/923110528707\n2️⃣ Describe your project briefly\n3️⃣ Get a custom quote within 24 hours\n4️⃣ Project kicks off after agreement\n\n📧 Email: hafeez.digitalwork@gmail.com\n\nHafeez responds within a few hours! ⚡"
+  },
+
   services: {
-    q: ['service','what do you do','what do you do','kya offer','work','help','speciali','expertise','offer'],
-    a: "🚀 Hafeez offers the following services:\n\n• 📈 Digital Marketing (Facebook/Instagram/Google Ads)\n• 🛍️ Shopify Store Design & Development\n• 💻 Web Development & Design\n• 🎨 Graphic Design & Branding\n• 🤖 AI Tools & Automation\n• 🎬 Video Editing (Reels, Shorts)\n\nWould you like details about any specific service?"
+    q: ['service','what do you do','what do you offer','what can you do','expertise','speciali','capabilities','offerings','work','help me with'],
+    a: "🚀 Hafeez offers 8 professional services:\n\n1. 🛍️ Shopify Store — Rs 8,000+\n2. 📈 Digital Marketing — Rs 5,000/mo\n3. 💻 Website Design — Rs 6,000+\n4. 🎨 Graphic Design — Rs 1,500+\n5. 🤖 AI & Automation — Rs 7,000+\n6. 🎬 Video Editing — Rs 1,000/video\n7. 🌐 Portfolio Website — Rs 2,000\n8. 💼 LinkedIn Optimization — Rs 2,000\n\nNeed details on any specific service?"
   },
-  marketing: {
-    q: ['digital market','social media','facebook ads','instagram ads','google ads','seo','brand','lead','campaign','advertis'],
-    a: "📈 Digital Marketing Services:\n\n• Social Media Management (FB, IG, LinkedIn)\n• Facebook & Instagram Ads\n• Google Ads & PPC\n• Lead Generation Campaigns\n• SEO & Google Business Profile\n• Brand Awareness Strategies\n\nContact: wa.me/923110528707"
-  },
+
   shopify: {
-    q: ['shopify','ecommerce','e-commerce','online store','store design','shop','aurion'],
-    a: "🛍️ Shopify Services:\n\n• Complete Store Design & Development\n• Mobile Responsive Design\n• Conversion-Optimized Layout\n• Product Setup & Configuration\n• Payment Integration\n\nExample: Aurion Mall Store\nauriomall-2.myshopify.com\n\nContact us: wa.me/923110528707"
+    q: ['shopify','ecommerce','e-commerce','online store','store design','shop','dropship','product store','woocommerce','aurion'],
+    a: "🛍️ Shopify Store Service:\n\nStarting from Rs 8,000\n\n✅ Complete Store Setup\n✅ Professional Theme Design\n✅ Mobile Responsive\n✅ Product Upload (up to 20)\n✅ Payment Integration\n✅ 1 Week Delivery\n\nLive Example: aurionmall-2.myshopify.com\n\n📱 Order now: wa.me/923110528707"
   },
-  webdev: {
-    q: ['web','website','develop','html','css','javascript','landing page','portfolio site','github'],
-    a: "💻 Web Development Services:\n\n• Business Websites\n• Landing Pages\n• Portfolio Websites\n• Islamic Content Websites\n• GitHub Pages Hosting\n\nExample Projects:\n• Mazameen-e-Quran App\n• AI Tools for Freelancers\n\nContact: wa.me/923110528707"
+
+  marketing: {
+    q: ['digital market','social media','facebook ads','instagram ads','google ads','seo','brand','lead','campaign','advertis','meta ads','paid ads','marketing strategy','content strategy','grow my page'],
+    a: "📈 Digital Marketing Service:\n\nStarting from Rs 5,000/month\n\n✅ Social Media Management (FB, IG, LinkedIn)\n✅ 10 Posts per Month\n✅ Facebook & Instagram Ads\n✅ Google Ads & PPC\n✅ Monthly Performance Report\n✅ Lead Generation Campaigns\n✅ Brand Awareness Strategy\n\n📱 Get started: wa.me/923110528707"
   },
+
+  website: {
+    q: ['website','web design','web develop','landing page','business website','html','wordpress','custom site','personal site','company website','make a website'],
+    a: "💻 Website Design Service:\n\nStarting from Rs 6,000\n\n✅ Custom Professional Design\n✅ Mobile Responsive\n✅ Up to 5 Pages\n✅ Contact Form\n✅ Free Hosting Setup\n✅ 1 Week Delivery\n\nLive Example: ai-tools-freelancer.netlify.app\n\n📱 Order now: wa.me/923110528707"
+  },
+
+  portfolio_service: {
+    q: ['portfolio website','make portfolio','build portfolio','portfolio design','portfolio site','need portfolio'],
+    a: "🌐 Portfolio Website Service:\n\nOnly Rs 2,000!\n\n✅ Custom Portfolio Design\n✅ About & Skills Section\n✅ Projects Showcase\n✅ Contact Form\n✅ Mobile Responsive\n✅ Free Hosting Setup\n\nPerfect for students, freelancers & job seekers!\n\n📱 Order now: wa.me/923110528707"
+  },
+
+  linkedin_service: {
+    q: ['linkedin optim','linkedin profile','improve linkedin','linkedin help','linkedin setup','linkedin makeover','update linkedin'],
+    a: "💼 LinkedIn Optimization Service:\n\nOnly Rs 2,000!\n\n✅ Professional Headline Writing\n✅ About Section Rewrite\n✅ Skills & Endorsements Setup\n✅ Banner Design\n✅ Profile SEO Optimization\n✅ Featured Section Setup\n\nGet more profile views & job offers!\n\n📱 Order now: wa.me/923110528707"
+  },
+
   design: {
-    q: ['graphic','design','logo','poster','banner','branding','photoshop','illustrator','creative','social post'],
-    a: "🎨 Graphic Design Services:\n\n• Logo Design & Branding\n• Social Media Post Design\n• Marketing Creatives\n• Business Cards & Flyers\n• Adobe Photoshop & Illustrator\n\nContact: wa.me/923110528707"
+    q: ['graphic','logo','poster','banner','branding','photoshop','illustrator','creative','social post','flyer','business card','visual','design'],
+    a: "🎨 Graphic Design Service:\n\nStarting from Rs 1,500\n\n✅ Logo Design (3 Concepts)\n✅ Business Card Design\n✅ Social Media Post Design\n✅ Banner & Flyer Design\n✅ Source File Included\n✅ Unlimited Revisions\n\n📱 Order now: wa.me/923110528707"
   },
-  ai: {
-    q: ['ai','artificial','automation','chatbot','gpt','prompt','machine','bot','workflow','automat'],
-    a: "🤖 AI & Automation Services:\n\n• AI Chatbot Development\n• Workflow Automation\n• AI-Powered Lead Generation\n• Prompt Engineering\n• Google Sheets Automation\n• AI Customer Support Systems\n\nHafeez holds 5 AI certifications including Google AI Essentials!\n\nContact: wa.me/923110528707"
+
+  ai_service: {
+    q: ['ai automat','chatbot','artificial intelli','bot','workflow','automat','ai solution','ai develop','machine learn','ai tools','prompt','gpt','agentic'],
+    a: "🤖 AI & Automation Service:\n\nStarting from Rs 7,000\n\n✅ AI Chatbot Development\n✅ WhatsApp Automation\n✅ Google Sheets Automation\n✅ AI Workflow Setup\n✅ AI-Powered Lead Generation\n✅ Training & Ongoing Support\n\nCertified in Google AI Essentials + 4 more AI certs!\n\n📱 Order now: wa.me/923110528707"
   },
-  projects: {
-    q: ['project','work','portfolio','example','website bana','built','show','sample','demo'],
-    a: "🗂️ Featured Projects:\n\n1. 📖 Mazameen-e-Quran\n   Islamic Web App\n   hafeezurrehman-hub.github.io/mazameen-quran\n\n2. 🛍️ Aurion Mall\n   Shopify E-Commerce Store\n   aurionmall-2.myshopify.com\n\n3. 🤖 AI Tools for Freelancers\n   Resource Hub\n   ai-tools-freelancer.netlify.app\n\n4. 🚀 QuantumNestTech\n   Software Startup (Coming Soon)"
+
+  video: {
+    q: ['video edit','reel','tiktok video','short video','youtube edit','premiere','capcut','video content','clip','footage'],
+    a: "🎬 Video Editing Service:\n\nStarting from Rs 1,000/video\n\n✅ Reels & TikTok Editing\n✅ Captions & Subtitles\n✅ Background Music\n✅ Color Grading\n✅ Adobe Premiere Pro & CapCut\n✅ Fast 24-Hour Delivery\n\n📱 Order now: wa.me/923110528707"
   },
-  qnt: {
-    q: ['quantum','qnt','company','startup','software company','tech company'],
-    a: "🚀 QuantumNestTech:\n\nHafeez is co-founding a software company with students — QuantumNestTech!\n\nFocus areas:\n• AI-Powered Solutions\n• Web Applications\n• Business Automation Systems\n\nLaunching soon — stay tuned! 🔥"
-  },
+
   pricing: {
-    q: ['price','pricing','cost','rate','fee','cost','charge','budget','payment','how much','kharcha'],
-    a: "💰 Pricing (Pakistan Rates):\n\n🛍️ Shopify Store — Rs 8,000+\n📈 Digital Marketing — Rs 5,000/month\n💻 Website Design — Rs 6,000+\n🎨 Graphic Design — Rs 1,500+\n🤖 AI & Automation — Rs 7,000+\n🎬 Video Editing — Rs 1,000/video\n🌐 Portfolio Website — Rs 2,000\n💼 LinkedIn Optimization — Rs 2,000\n\nFor a custom package:\n📱 WhatsApp: wa.me/923110528707"
+    q: ['price','pricing','cost','rate','fee','how much','charge','budget','payment','package','affordable','cheap','expensive','rates'],
+    a: "💰 Service Pricing (USD):\n\n🥉 Basic (from $100):\n   Portfolio, LinkedIn, Design, Video\n\n🥈 Standard (from $250):\n   Shopify, Website, Marketing, AI Bot\n\n🥇 Premium (from $800):\n   Full E-Commerce, Complete Digital,\n   AI Suite, Premium Marketing\n\n💬 Need a custom package?\n📱 wa.me/923110528707"
   },
+
+  delivery: {
+    q: ['delivery','how long','timeline','deadline','how many days','turnaround','when will','time to complete','duration'],
+    a: "⏱️ Delivery Timelines:\n\n🌐 Portfolio Website — 2-3 days\n💼 LinkedIn Optimization — 1-2 days\n🎬 Video Editing — 24 hours\n💻 Website Design — 5-7 days\n🛍️ Shopify Store — 5-7 days\n📈 Digital Marketing — Ongoing monthly\n🎨 Graphic Design — 1-3 days\n🤖 AI Automation — 7-10 days\n\nRush delivery available! Contact:\n📱 wa.me/923110528707"
+  },
+
+  revision: {
+    q: ['revision','change','edit','modify','update','not happy','redo','fix','correction'],
+    a: "🔄 Revisions Policy:\n\nHafeez offers revisions on all projects until you are 100% satisfied!\n\n✅ Graphic Design — Unlimited revisions\n✅ Website — Up to 3 revisions\n✅ Shopify Store — Up to 3 revisions\n✅ LinkedIn — Up to 2 revisions\n✅ Video — Up to 2 revisions\n\nYour satisfaction is the top priority! 😊\n📱 wa.me/923110528707"
+  },
+
+  projects: {
+    q: ['project','portfolio','example','work','sample','demo','show me','what have you built','previous work','past work'],
+    a: "🗂️ Featured Projects:\n\n1. 📖 Mazameen-e-Quran\n   Islamic Web App\n   hafeezurrehman-hub.github.io/mazameen-quran\n\n2. 🛍️ Aurion Mall\n   Shopify E-Commerce Store\n   aurionmall-2.myshopify.com\n\n3. 🤖 AI Tools for Freelancers\n   Resource Website\n   ai-tools-freelancer.netlify.app\n\n4. 🚀 QuantumNestTech\n   Software Startup (Launching Soon)\n\nAll built by Hafeez! 💪"
+  },
+
+  qnt: {
+    q: ['quantum','qnt','software company','startup','tech company','co-founder'],
+    a: "🚀 QuantumNestTech:\n\nHafeez is co-founding a software startup with talented students!\n\nFocus Areas:\n• AI-Powered Solutions\n• Web Applications\n• Business Automation Systems\n• Digital Products\n\nLaunching soon — stay tuned! 🔥\n\n📱 Inquiries: wa.me/923110528707"
+  },
+
   contact: {
-    q: ['contact','reach','whatsapp','phone','email','call','message','connect','reach','hire','milen'],
-    a: "📞 Contact Hafeez:\n\n📱 WhatsApp: +92 311 0528707\n   wa.me/923110528707\n\n📧 Email: hafeez.digitalwork@gmail.com\n\n💼 LinkedIn:\n   linkedin.com/in/hafeez-ur-rehman-digital\n\n📍 Location: Islamabad, Pakistan\n\nFreelance projects ke liye available hai! 🤝"
+    q: ['contact','reach','whatsapp','phone','email','call','message','connect','get in touch','talk to','speak with'],
+    a: "📞 Contact Hafeez:\n\n📱 WhatsApp: +92 311 0528707\n   wa.me/923110528707\n\n📧 Email:\n   hafeez.digitalwork@gmail.com\n\n💼 LinkedIn:\n   linkedin.com/in/hafeez-ur-rehman-digital\n\n📍 Location: Islamabad, Pakistan\n\n⚡ Usually responds within a few hours!"
   },
+
   social: {
-    q: ['instagram','youtube','tiktok','facebook','threads','social','follow','channel','page'],
-    a: "📱 Social Media:\n\n• Instagram: @auriontimes\n• YouTube: @auriontimes\n• TikTok: @auriontimes2\n• Facebook: AurionTimes\n• Threads: @auriontimes\n• LinkedIn: hafeez-ur-rehman-digital\n\nSab platforms pe follow karo! 🔔"
+    q: ['instagram','youtube','tiktok','facebook','threads','social media','follow','channel','page','content'],
+    a: "📱 Follow Hafeez on Social Media:\n\n📸 Instagram: @auriontimes\n▶️ YouTube: @auriontimes\n🎵 TikTok: @auriontimes2\n👥 Facebook: AurionTimes\n🧵 Threads: @auriontimes\n💼 LinkedIn: hafeez-ur-rehman-digital\n\nFollow for tips on Digital Marketing, AI & Freelancing! 🔔"
   },
+
   experience: {
-    q: ['experience','experien','how many years','years','seniority','expert','skilled','background','qualification'],
-    a: "💼 Experience:\n\n• 1+ year in Digital Marketing & Design\n• 500+ LinkedIn Connections\n• Multiple live projects\n• Currently working at as-saadah\n• Co-Founder of QuantumNestTech\n\n🏆 Certifications:\n• Google AI Essentials\n• Introduction to AI\n• Maximize Productivity With AI\n• Art of Prompting\n• Use AI Responsibly"
+    q: ['experience','how long','years','background','qualification','expert','skilled','senior','junior','fresher'],
+    a: "💼 Hafeez's Background:\n\n• 1+ Year Professional Experience\n• Currently at as-saadah (Islamabad)\n• 500+ LinkedIn Connections\n• Co-Founder of QuantumNestTech\n\n🏆 Certifications:\n✅ Google AI Essentials\n✅ Introduction to AI\n✅ Maximize Productivity With AI\n✅ Art of Prompting\n✅ Use AI Responsibly"
   },
+
   location: {
-    q: ['location','city','islamabad','pakistan','where','where','address'],
-    a: "📍 Hafeez is based in Islamabad, Pakistan and works with clients worldwide — remote work available! 🌍"
+    q: ['location','city','islamabad','pakistan','where','country','based','remote','online','local'],
+    a: "📍 Location:\n\nHafeez is based in Islamabad, Pakistan.\n\n🌍 Works with clients worldwide — fully remote!\n\nAvailable for:\n✅ Online / Remote projects\n✅ Local Islamabad clients\n✅ Nationwide Pakistan\n\n📱 wa.me/923110528707"
   },
+
+  // === STUDENT / CAREER TIPS ===
+  portfolio_tips: {
+    q: ['how to make portfolio','portfolio tips','build my portfolio','improve portfolio','what to add in portfolio','portfolio advice','portfolio for job','portfolio for freelance'],
+    a: "📁 Portfolio Tips from Hafeez:\n\n1. ✅ Build 3-5 live projects (quality > quantity)\n2. ✅ Add a personal portfolio website\n3. ✅ Show results, not just screenshots\n4. ✅ Include a professional photo & bio\n5. ✅ List certifications & skills\n6. ✅ Add contact info & social links\n\n💡 Pro Tip: A Rs 2,000 portfolio website pays for itself with your first client!\n\n📱 Get yours: wa.me/923110528707"
+  },
+
+  linkedin_tips: {
+    q: ['linkedin tips','how to improve linkedin','linkedin for job','linkedin for freelance','linkedin advice','linkedin bio','linkedin headline','get noticed linkedin','linkedin connections'],
+    a: "💼 LinkedIn Tips from Hafeez:\n\n1. ✅ Use a professional photo\n2. ✅ Write a value-first headline\n3. ✅ Complete your About section\n4. ✅ Add Featured projects & links\n5. ✅ Get 500+ connections\n6. ✅ Post content regularly\n7. ✅ Add certifications with badges\n\n💡 Pro Tip: A strong LinkedIn gets you noticed by clients & recruiters automatically!\n\n🔧 Want Hafeez to optimize yours for Rs 2,000?\n📱 wa.me/923110528707"
+  },
+
+  freelance_tips: {
+    q: ['freelance','fiverr','upwork','freelancing tips','how to start freelancing','get clients','find clients','earn online','make money online','remote work'],
+    a: "💰 Freelancing Tips from Hafeez:\n\n1. ✅ Pick 1-2 skills to start (not everything)\n2. ✅ Build a portfolio first (even 3 projects)\n3. ✅ Create Fiverr & Upwork profiles\n4. ✅ Optimize your LinkedIn\n5. ✅ Use AI tools to work faster\n6. ✅ Network on social media daily\n7. ✅ Start with affordable rates, grow later\n\n💡 Services like Digital Marketing, Shopify & AI are in high demand right now!\n\n📱 Need guidance? wa.me/923110528707"
+  },
+
+  ai_tips: {
+    q: ['ai tips','learn ai','ai for freelancer','ai productivity','use ai','ai tools tips','how to use ai','chatgpt tips','ai for business'],
+    a: "🤖 AI Tips from Hafeez:\n\n1. ✅ Use ChatGPT for content & copywriting\n2. ✅ Use Canva AI for quick designs\n3. ✅ Use AI for email templates\n4. ✅ Automate repetitive tasks\n5. ✅ Use AI for SEO keyword research\n6. ✅ Build AI chatbots for your clients\n\n💡 Hafeez holds 5 AI certifications including Google AI Essentials!\n\n📱 Want AI automation for your business?\n   wa.me/923110528707"
+  },
+
+  certifications: {
+    q: ['certif','qualification','course','training','google cert','credential','badge','diploma'],
+    a: "🏆 Hafeez's Certifications:\n\n✅ Google AI Essentials\n✅ Introduction to AI\n✅ Maximize Productivity With AI Tools\n✅ Discover the Art of Prompting\n✅ Use AI Responsibly\n\nAll verified certifications! Continuously learning new skills. 📚"
+  },
+
   thanks: {
-    q: ['thank','shukriya','jazak','shukria','great','awesome','nice','acha','badhiya','wah'],
-    a: "😊 Thank you! Hafeez is always ready to help. Feel free to ask if you have any more questions! 🤝"
+    q: ['thank','great','awesome','nice','excellent','perfect','good job','well done','amazing','helpful','brilliant','superb'],
+    a: "😊 Thank you so much! Really appreciate it.\n\nIf you need any services or have more questions, feel free to ask anytime!\n\n📱 WhatsApp: wa.me/923110528707"
   },
+
   bye: {
-    q: ['bye','goodbye','khuda hafiz','allah hafiz','ciao','later','ok thanks','done'],
-    a: "👋 Goodbye! To get in touch with Hafeez:\n📱 WhatsApp: wa.me/923110528707\n\nLooking forward to working on your project! 🚀"
+    q: ['bye','goodbye','later','done','ok thanks','all good','got it','that will be all','ciao','see you'],
+    a: "👋 Goodbye! It was great chatting with you.\n\nWhenever you need digital services, Hafeez is just one message away!\n\n📱 wa.me/923110528707\n\nHave a great day! 🌟"
   }
 };
+
+// Popular FAQs shown as quick buttons
+const FAQS = [
+  { label: '💰 Pricing?', key: 'pricing' },
+  { label: '🛍️ Shopify Store?', key: 'shopify' },
+  { label: '🌐 Portfolio Website?', key: 'portfolio_service' },
+  { label: '💼 LinkedIn Tips?', key: 'linkedin_tips' },
+  { label: '📞 Contact?', key: 'contact' },
+  { label: '🚀 Projects?', key: 'projects' },
+  { label: '⏱️ Delivery Time?', key: 'delivery' },
+  { label: '💡 Freelancing Tips?', key: 'freelance_tips' },
+];
 
 let chatOpen = false;
 let firstOpen = true;
@@ -1658,14 +2028,38 @@ let firstOpen = true;
 function toggleChat() {
   chatOpen = !chatOpen;
   const win = document.getElementById('chat-window');
-  const icon = document.getElementById('chat-icon');
   win.classList.toggle('open', chatOpen);
-  document.getElementById('icon-robot').style.display = chatOpen ? 'none' : 'block'; document.getElementById('icon-close').style.display = chatOpen ? 'block' : 'none';
+  document.getElementById('icon-robot').style.display = chatOpen ? 'none' : 'block';
+  document.getElementById('icon-close').style.display = chatOpen ? 'block' : 'none';
   document.querySelector('.notif').style.display = chatOpen ? 'none' : 'block';
   if (chatOpen && firstOpen) {
     firstOpen = false;
-    setTimeout(() => addMsg('bot', "👋 Hello! I'm Hafeez's AI Assistant.\n\nYou can ask me about:\n• Services & Pricing\n• Projects\n• Contact Info\n• Experience"), 400);
+    setTimeout(() => {
+      addMsg('bot', "Hello! 👋 I'm Hafeez's AI Assistant.\n\nAsk me anything about services, pricing, projects, or career tips!");
+      renderFAQs();
+    }, 400);
   }
+}
+
+function renderFAQs() {
+  const sug = document.getElementById('suggestions');
+  sug.innerHTML = '';
+  sug.style.display = 'flex';
+  FAQS.forEach(faq => {
+    const btn = document.createElement('button');
+    btn.className = 'sug-btn';
+    btn.textContent = faq.label;
+    btn.onclick = () => {
+      sug.style.display = 'none';
+      addMsg('user', faq.label);
+      showTyping();
+      setTimeout(() => {
+        removeTyping();
+        addMsg('bot', KB[faq.key].a);
+      }, 600);
+    };
+    sug.appendChild(btn);
+  });
 }
 
 function addMsg(role, text) {
@@ -1693,26 +2087,6 @@ function removeTyping() {
   if (t) t.remove();
 }
 
-function askSug(btn) {
-  const map = {
-    '💼 Your services?': 'services',
-    '💰 Pricing?': 'price',
-    '📞 How to contact?': 'contact',
-    '🚀 Projects?': 'projects'
-  };
-  const key = btn.textContent.trim();
-  document.getElementById('suggestions').style.display = 'none';
-  addMsg('user', key);
-  setTimeout(() => {
-    showTyping();
-    setTimeout(() => {
-      removeTyping();
-      const topic = map[key];
-      addMsg('bot', KB[topic]?.a || KB.services.a);
-    }, 700);
-  }, 100);
-}
-
 function getReply(input) {
   const txt = input.toLowerCase().trim();
   for (const [key, data] of Object.entries(KB)) {
@@ -1720,7 +2094,7 @@ function getReply(input) {
       return data.a;
     }
   }
-  return "🤔 I didn't quite understand that. You can ask me about:\n\n• What services are offered?\n• What are the prices?\n• How to get in contact?\n• What projects have been done?\n\nOr contact directly on WhatsApp: wa.me/923110528707 📱";
+  return "🤔 I'm not sure about that.\n\nYou can ask me about:\n• Services & Pricing\n• Projects & Portfolio\n• Delivery Timelines\n• Freelancing & LinkedIn Tips\n• How to hire Hafeez\n\nOr contact directly:\n📱 wa.me/923110528707";
 }
 
 function sendChat() {
@@ -1733,8 +2107,14 @@ function sendChat() {
   showTyping();
   setTimeout(() => {
     removeTyping();
-    addMsg('bot', getReply(text));
-  }, 600 + Math.random()*400);
+    const reply = getReply(text);
+    addMsg('bot', reply);
+    // Show FAQs again after every 3rd message
+    const msgs = document.getElementById('chat-msgs').querySelectorAll('.msg.user');
+    if (msgs.length % 3 === 0) {
+      setTimeout(() => renderFAQs(), 500);
+    }
+  }, 500 + Math.random() * 400);
 }
 </script>
 
@@ -1799,5 +2179,14 @@ if(localStorage.getItem('theme') === 'light'){
 }
 </script>
 
+
+<script>
+function showPkg(name) {
+  document.querySelectorAll('.pkg-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.pkg-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('pkg-' + name).style.display = 'block';
+  event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
