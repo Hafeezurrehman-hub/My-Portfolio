@@ -326,17 +326,18 @@ section{padding:90px 2rem;position:relative;z-index:1}
 
 /* PROJECTS */
 #projects{background:var(--bg2)}
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;perspective:1200px}
 .proj-card{
   background:var(--card);
   border:1px solid var(--border2);
   border-radius:14px;overflow:hidden;
-  transition:all 0.3s;
+  transition:transform 0.15s ease-out,box-shadow 0.3s,border-color 0.3s;
+  transform-style:preserve-3d;
+  will-change:transform;
 }
 .proj-card:hover{
   border-color:var(--border);
-  transform:translateY(-5px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.3),0 0 20px rgba(0,212,255,0.1);
+  box-shadow:0 25px 50px rgba(0,0,0,0.35),0 0 25px rgba(0,212,255,0.15);
 }
 .proj-top{
   background:linear-gradient(135deg,var(--bg3),var(--card2));
@@ -902,11 +903,11 @@ body.light .loader-logo{color:#1A6FFF}
       </div>
       <div class="float-badge float-badge-1">
         <i class="fas fa-star"></i>
-        <div><span class="num">1+</span><br>Years Exp.</div>
+        <div><span class="num">2+</span><br>Years Exp.</div>
       </div>
       <div class="float-badge float-badge-2">
         <i class="fas fa-users"></i>
-        <div><span class="num">500+</span><br>Connections</div>
+        <div><span class="num">1500+</span><br>Connections</div>
       </div>
     </div>
   </div>
@@ -916,17 +917,17 @@ body.light .loader-logo{color:#1A6FFF}
   <div class="stats-inner">
     <div class="stat-card">
       <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
-      <div class="stat-num" data-target="1" data-suffix="+">0</div>
+      <div class="stat-num" data-target="2" data-suffix="+">0</div>
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat-card">
       <div class="stat-icon"><i class="fas fa-rocket"></i></div>
-      <div class="stat-num" data-target="3" data-suffix="">0</div>
+      <div class="stat-num" data-target="5" data-suffix="">0</div>
       <div class="stat-label">Live Projects</div>
     </div>
     <div class="stat-card">
       <div class="stat-icon"><i class="fas fa-users"></i></div>
-      <div class="stat-num" data-target="500" data-suffix="+">0</div>
+      <div class="stat-num" data-target="1500" data-suffix="+">0</div>
       <div class="stat-label">LinkedIn Connections</div>
     </div>
     <div class="stat-card">
@@ -945,11 +946,11 @@ body.light .loader-logo{color:#1A6FFF}
         <p class="eyebrow">Who I Am</p>
         <h2 class="sec-title">Building Complete Digital Ecosystems</h2>
         <div class="line"></div>
-        <p>I am a Digital Marketing & AI Solutions Specialist based in Islamabad, Pakistan with 1+ year of experience helping businesses build strong online presence and achieve measurable growth.</p>
+        <p>I am a Digital Marketing & AI Solutions Specialist based in Islamabad, Pakistan with 2+ years of experience helping businesses build strong online presence and achieve measurable growth.</p>
         <p>I work with e-commerce brands, startups, and local businesses — combining marketing strategy, design, development, and AI automation all in one place.</p>
         <div class="info-grid">
           <div class="info-card"><i class="fas fa-map-marker-alt"></i><div><strong>Location</strong><span>Islamabad, Pakistan</span></div></div>
-          <div class="info-card"><i class="fas fa-briefcase"></i><div><strong>Experience</strong><span>1+ Year</span></div></div>
+          <div class="info-card"><i class="fas fa-briefcase"></i><div><strong>Experience</strong><span>2+ Years</span></div></div>
           <div class="info-card"><i class="fas fa-envelope"></i><div><strong>Email</strong><span>hafeez.digitalwork@gmail.com</span></div></div>
           <div class="info-card"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><span>+92 311 0528707</span></div></div>
         </div>
@@ -1974,7 +1975,7 @@ const KB = {
 
   experience: {
     q: ['experience','how long','years','background','qualification','expert','skilled','senior','junior','fresher'],
-    a: "💼 Hafeez's Background:\n\n• 1+ Year Professional Experience\n• Currently at as-saadah (Islamabad)\n• 500+ LinkedIn Connections\n• Founder & Lead of QuantumNestTech\n\n🏆 Certifications:\n✅ Google AI Essentials\n✅ Introduction to AI\n✅ Maximize Productivity With AI\n✅ Art of Prompting\n✅ Use AI Responsibly"
+    a: "💼 Hafeez's Background:\n\n• 2+ Years Professional Experience\n• Currently at as-saadah (Islamabad)\n• 1500+ LinkedIn Connections\n• Founder & Lead of QuantumNestTech\n\n🏆 Certifications:\n✅ Google AI Essentials\n✅ Introduction to AI\n✅ Maximize Productivity With AI\n✅ Art of Prompting\n✅ Use AI Responsibly"
   },
 
   location: {
@@ -2196,6 +2197,24 @@ function showPkg(name) {
   document.getElementById('pkg-' + name).style.display = 'block';
   event.target.classList.add('active');
 }
+</script>
+<script>
+// 3D tilt effect for project cards
+document.querySelectorAll('.proj-card').forEach(function(card){
+  var maxTilt = 10;
+  card.addEventListener('mousemove', function(e){
+    var rect = card.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    var cx = rect.width/2, cy = rect.height/2;
+    var rotY = ((x-cx)/cx)*maxTilt;
+    var rotX = -((y-cy)/cy)*maxTilt;
+    card.style.transform = 'translateY(-5px) perspective(1200px) rotateX('+rotX+'deg) rotateY('+rotY+'deg) scale(1.02)';
+  });
+  card.addEventListener('mouseleave', function(){
+    card.style.transform = 'translateY(0) perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)';
+  });
+});
 </script>
 </body>
 </html>
